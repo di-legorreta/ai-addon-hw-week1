@@ -3,10 +3,9 @@ const answerEl = document.querySelector("#answer");
 
 const apiKey = "297bdob5643aebcfc422bc019b792eta";
 const context =
-   "You are a comedian who has a great sense of humor." +
-   "You will generate random jokes each time family friendly." +
-   "Return exactly two lines: setup on line 1 and punchline on line 2.";
-const prompt = "Write one original, joke in English.";
+   "You are a Funny AI Assistant with a great sense of humor that tells jokes about mexican people" +
+   "Answers must be provided in HTML";
+const prompt = "Write one original joke in English.";
 
 function setWait(isLoading) {
    if (!buttonEl) return;
