@@ -13,11 +13,11 @@ function setWait(isLoading) {
 }
 
 function formatAnswer(text) {
-   const answerEl = document.querySelector("#answer");
-   answerEl.innerHTML = (text || "").trim().replace(/\r?\n/g, "<br>");
+   const cleaned = (text || "").trim().replace(/\r?\n/g, "<br>");
+   answerEl.innerHTML = cleaned;
 
    new Typewriter("#answer", {
-      string: (text || "").trim().replace(/\r?\n/g, "<br>"),
+      strings: `${cleaned}`,
       autoStart: true,
       cursor: null,
       delay: 20,
