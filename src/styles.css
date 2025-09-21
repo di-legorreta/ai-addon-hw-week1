@@ -1,0 +1,34 @@
+body {
+   font-family: sans-serif;
+   padding: 0 20px;
+}
+
+h1 {
+   text-align: center;
+   font-weight: 900;
+   margin: 20px;
+   font-size: 34px;
+   line-height: 48px;
+   color: black;
+}
+
+button {
+   background-color: #ea4c89;
+   border-radius: 8px;
+   border-style: none;
+   box-sizing: border-box;
+   color: #ffffff;
+   cursor: pointer;
+   display: inline-block;
+   font-size: 16px;
+   font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+      sans-serif;
+   font-weight: 500;
+   height: 40px;
+   line-height: 20px;
+   margin: 0;
+   outline: none;
+   padding: 10px 26px;
+   position: relative;
+   text-align: center;
+}
