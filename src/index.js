@@ -3,8 +3,7 @@ const answerEl = document.querySelector("#answer");
 
 const apiKey = "297bdob5643aebcfc422bc019b792eta";
 const context =
-   "You are a Funny AI Assistant with a great sense of humor that tells jokes about mexican people" +
-   "Answers must be provided in HTML";
+   "You are a Funny AI Assistant with a great sense of humor that tells jokes about mexican people";
 const prompt = "Write one original joke in English.";
 
 function setWait(isLoading) {
@@ -14,8 +13,15 @@ function setWait(isLoading) {
 }
 
 function formatAnswer(text) {
-   const cleaned = (text || "").trim().replace(/\r?\n/g, "<br>");
-   answerEl.innerHTML = cleaned;
+   const answerEl = document.querySelector("#answer");
+   answerEl.innerHTML = (text || "").trim().replace(/\r?\n/g, "<br>");
+
+   new Typewriter("#answer", {
+      string: (text || "").trim().replace(/\r?\n/g, "<br>"),
+      autoStart: true,
+      cursor: null,
+      delay: 20,
+   });
 }
 
 function generateJoke(response) {
