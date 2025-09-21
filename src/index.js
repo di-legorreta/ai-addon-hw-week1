@@ -4,7 +4,7 @@ const answerEl = document.querySelector("#answer");
 const apiKey = "297bdob5643aebcfc422bc019b792eta";
 const context =
    "You are a comedian who has a great sense of humor." +
-   "You will generate jokes with no profanity, nor slurs, nor adult content. " +
+   "You will generate random jokes each time family friendly." +
    "Return exactly two lines: setup on line 1 and punchline on line 2.";
 const prompt = "Write one original, joke in English.";
 
@@ -31,7 +31,13 @@ function generateJoke(response) {
    formatAnswer(data.answer);
 }
 
+let lastClickTs = 0;
+
 function callAPI() {
+   const now = Date.now();
+   if (now - lastClickTs < 1000) return;
+   lastClickTs = now;
+
    setWait(true);
    formatAnswer("");
    const apiUrl =
@@ -41,10 +47,13 @@ function callAPI() {
       "&context=" +
       encodeURIComponent(context) +
       "&key=" +
-      encodeURIComponent(apiKey);
+      encodeURIComponent(apiKey) +
+      "&t=";
 
    axios
-      .get(apiUrl)
+      .get(apiUrl + "&nocache=" + Date.now(), {
+         headers: { "Cache-Control": "no-cache" },
+      })
       .then(generateJoke)
       .catch((err) => {
          setWait(false);
